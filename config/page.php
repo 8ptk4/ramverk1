@@ -19,7 +19,8 @@ return [
             "lang" => "sv",
             "stylesheets" => [
                 //"css/dbwebb-se.min.css",
-                "css/future.min.css",
+                //"css/future.min.css",
+                "css/purple.min.css",
             ],
             "javascripts" => [
                 "js/responsive-menu.js",
