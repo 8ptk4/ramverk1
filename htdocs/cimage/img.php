@@ -76,6 +76,7 @@ $status = getDefined('status', true, false);
 /**
  * Set mode as strict, production or development.
  * Default is production environment.
+ * 
  */
 $mode = getConfig('mode', 'production');
 
