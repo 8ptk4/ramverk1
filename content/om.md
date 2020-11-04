@@ -16,13 +16,10 @@ views:
                 type: single
                 route: block/om-redovisa
 ---
-Om
+Om kursen ramverk1
 =========================
 
-Detta innehåll är skrivet i markdown och du hittar innehållet i filen `content/om.md`.
+Kursen Webbaserade ramverk 1, a.k.a. ramverk1, lär ut programmering och objektorienterade kodstrukturer med designmönster och modultänkande kring återanvändbara moduler i webbaserade ramverk samt tekniker för automatiserad testning, byggsystem och flöde för kontinuerlig integration av programvaran.
 
-Skriv några kloka ord om kursen?
+[FIGURE src=image/chess.jpg?w=300 caption="Shack matt!"]
 
-Lägg till en representativ bild för kursen, enligt ditt egna val.
-
-[FIGURE src=image/car.png?w=300 caption="En fin bil som demobild."]
