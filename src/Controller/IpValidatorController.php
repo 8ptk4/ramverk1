@@ -1,10 +1,10 @@
 <?php
 
-namespace Patrik\Controllers;
+namespace Anax\Controller;
 
 use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;
-use Patrik\Models\IpValidator;
+use Anax\Models\IpValidator;
 
 class IpValidatorController implements ContainerInjectableInterface
 {
@@ -33,8 +33,6 @@ class IpValidatorController implements ContainerInjectableInterface
             "domain" => $ipValidator->getDomain(),
         ]);
 
-        return $page->render([
-            "title" => $title,
-        ]);
+        return $page->render(["title" => $title]);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Patrik\Models;
+namespace Anax\Models;
 
 use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;

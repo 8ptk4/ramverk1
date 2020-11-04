@@ -1,10 +1,10 @@
 <?php
 
-namespace Patrik\Controllers;
+namespace Anax\Controller;
 
 use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;
-use Patrik\Models\IpValidator;
+use Anax\Models\IpValidator;
 
 class IpValidatorJsonController implements ContainerInjectableInterface
 {
