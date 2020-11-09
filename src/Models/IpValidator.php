@@ -16,7 +16,7 @@ class IpValidator implements ContainerInjectableInterface
      * IpAddress, Status, Domain
      * @var string
      */
-    public $input;
+    public $ipAddress;
     public $status;
     public $domain;
 
@@ -27,29 +27,25 @@ class IpValidator implements ContainerInjectableInterface
      * @method __construct
      * @param  string      $ipAddress
      */
-    public function __construct($input)
+    public function __construct($ipAddress)
     {
-        $this->validate($input);     
+        $this->ipAddress = $ipAddress;
     }
 
 
 
     /**
-     * Validate input if it is IPV4, IPV6 or latidude;longitude
+     * Validate if IP is IPV4 or IPV6
      * @method validateIp
      * @param  string     $ipAddress
      * @return string
      */
-    public function validate($input)
+    public function validateIp()
     {
-        if (filter_var($input, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+        if (filter_var($this->ipAddress, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
             $this->status = "IPV4";
-            $this->domain = gethostbyaddr($input);
-        } else if (filter_var($input, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
+        } else if (filter_var($this->ipAddress, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
             $this->status = "IPV6";
-            $this->domain = gethostbyaddr($input);
-        } else if (preg_match('/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?);[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$/', $input)) {
-            $this->status = explode( ';', $input );
         } else {
             $this->status = null;
         }
@@ -67,12 +63,12 @@ class IpValidator implements ContainerInjectableInterface
      */
     public function getDomain()
     {
+        if (!empty($this->ipAddress and $this->status != null)) {
+            $this->domain = gethostbyaddr($this->ipAddress);
+        } else {
+            $this->domain = "Verkar inte vara en gilltig ip-adress";
+        }
+
         return $this->domain;
-    }
-
-
-    public function getStatus()
-    {
-        return $this->status;
     }
 }

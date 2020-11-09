@@ -25,7 +25,7 @@ class IpValidatorJsonController implements ContainerInjectableInterface
 
         $json = [
             "ipAddress" => $ipAddress,
-            "status" => $ipValidator->getStatus(),
+            "status" => $ipValidator->validateIp(),
             "domain" => $ipValidator->getDomain(),
         ];
 

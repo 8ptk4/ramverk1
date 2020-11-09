@@ -17,7 +17,7 @@ class IpStack implements ContainerInjectableInterface
      * @var string
      */
     public $ipAddress;
-    protected $accessKey;
+    protected $accessKey = "79fe7be77803283c0193375c3fac63f6";
 
 
 
@@ -26,10 +26,9 @@ class IpStack implements ContainerInjectableInterface
      * @method __construct
      * @param  string      $ipAddress
      */
-    public function __construct($ipAddress, $key)
+    public function __construct($ipAddress)
     {
         $this->ipAddress = $ipAddress;
-        $this->accessKey = $key;
     }
 
 

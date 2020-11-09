@@ -7,7 +7,7 @@ return [
         [
             "info" => "Geolocation JSON",
             "mount" => "geo",
-            "handler" => "\Anax\Controllers\GeolocationJsonController",
+            "handler" => "\Anax\Controller\GeolocationJsonController",
         ],
     ]
 ];

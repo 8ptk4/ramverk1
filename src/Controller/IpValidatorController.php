@@ -29,10 +29,12 @@ class IpValidatorController implements ContainerInjectableInterface
         $page->add("anax/ipvalidator/index", [
             "title" => $title,
             "ipAddress" => $ipPost,
-            "status" => $ipValidator->getStatus(),
+            "status" => $ipValidator->validateIp(),
             "domain" => $ipValidator->getDomain(),
         ]);
 
-        return $page->render(["title" => $title]);
+        return $page->render([
+            "title" => $title,
+        ]);
     }
 }

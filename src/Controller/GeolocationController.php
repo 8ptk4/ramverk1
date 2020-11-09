@@ -1,6 +1,6 @@
 <?php
 
-namespace Anax\Controllers;
+namespace Anax\Controller;
 
 use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;
@@ -25,7 +25,7 @@ class GeolocationController implements ContainerInjectableInterface
         $ipPost = htmlentities($this->di->get("request")->getPost("ipAddress"));
         $ipUser = htmlentities($this->di->get("request")->getServer("REMOTE_ADDR"));
 
-        $ipStack = new IpStack($ipPost, $this->di->get("ipStack"));
+        $ipStack = new IpStack($ipPost);
         $validator = new IpValidator($ipPost);
 
         $page = $this->di->get("page");
@@ -34,7 +34,7 @@ class GeolocationController implements ContainerInjectableInterface
             "title" => $title,
             "data" => $ipStack->getInformation(),
             "ipAddress" => $ipPost,
-            "status" => $validator->getStatus(),
+            "status" => $validator->validateIp(),
             "domain" => $validator->getDomain(),
             "userIp" => $ipUser,
         ]);
