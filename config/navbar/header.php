@@ -43,10 +43,29 @@ return [
             "url" => "style",
             "title" => "Välj stylesheet.",
         ],
+        // [
+        //     "text" => "Verktyg",
+        //     "url" => "verktyg",
+        //     "title" => "Verktyg och möjligheter för utveckling.",
+        // ],
         [
-            "text" => "Verktyg",
-            "url" => "verktyg",
-            "title" => "Verktyg och möjligheter för utveckling.",
+            "text" => "Documentation",
+            "url" => "documentation",
+            "title" => "API documentations",
+            "submenu" => [
+                "items" => [
+                    [
+                        "text" => "ipvalidator",
+                        "url" => "documentation/ipvalidator",
+                        "title" => "API documentation ipvalidator",
+                    ],
+                    [
+                        "text" => "geolocation",
+                        "url" => "documentation/geolocation",
+                        "title" => "API documentation geolocation",
+                    ],
+                ],
+            ],
         ],
         [
             "text" => "Ipvalidator",

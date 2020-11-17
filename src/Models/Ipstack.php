@@ -17,7 +17,7 @@ class IpStack implements ContainerInjectableInterface
      * @var string
      */
     public $ipAddress;
-    protected $accessKey = "79fe7be77803283c0193375c3fac63f6";
+    protected $accessKey;
 
 
 
@@ -28,7 +28,9 @@ class IpStack implements ContainerInjectableInterface
      */
     public function __construct($ipAddress)
     {
+        $prep = require ANAX_INSTALL_PATH . "/config/keys.php";
         $this->ipAddress = $ipAddress;
+        $this->accessKey = $prep["ipstack"];
     }
 
 
