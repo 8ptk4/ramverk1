@@ -36,8 +36,9 @@ namespace Anax\View;
             <p>Huvudstad: <span style="color: rgb(52, 101, 164);"><?= $data['location']['capital']; ?></span><p>
         </div>
     </div>
-<?php else : ?>
+<?php endif; ?>
+<?php if (!$status) : ?>
     <div>
-        <span style="color: rgb(52, 101, 164);">Inte en giltig ip-address!</span>
+        <span style="color: rgb(52, 101, 164);">Inte en giltigt ip-address!</span>
     </div>
 <?php endif; ?>

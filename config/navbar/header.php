@@ -64,6 +64,11 @@ return [
                         "url" => "documentation/geolocation",
                         "title" => "API documentation geolocation",
                     ],
+                    [
+                        "text" => "weather",
+                        "url" => "documentation/weather",
+                        "title" => "API documentation weather",
+                    ],
                 ],
             ],
         ],
@@ -76,6 +81,11 @@ return [
             "text" => "Geolocation",
             "url" => "geolocation",
             "title" => "Geolocation",
+        ],
+        [
+            "text" => "Weather",
+            "url" => "weather",
+            "title" => "Weather",
         ],
     ],
 ];
