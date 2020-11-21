@@ -4,7 +4,6 @@ namespace Anax\Controller;
 
 use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;
-use Anax\Models\Weather;
 
 class WeatherJsonController implements ContainerInjectableInterface
 {
@@ -18,12 +17,18 @@ class WeatherJsonController implements ContainerInjectableInterface
      */
     public function indexActionGet() : array
     {
-        // $ipAddress = htmlentities($this->di->get("request")->getGet("ipAddress"));
+        $title = "Weather";
+        $location = htmlentities($this->di->get("request")->getGet("location"));
+        $weather = $this->di->get("weather");
+        
+        $json = [
+            "title" => $title,
+            "location" => $location,
+            "geocode" => $weather->loadGeolocation($location),
+            "weather" => $weather->loadWeather(),
+            "historic" => $weather->multiCurl()
+        ];
 
-        // $ipStack = new Ipstack($ipAddress);
-
-        // return [
-        //     $ipStack->getInformation()
-        // ];
+        return [$json];
     }
 }

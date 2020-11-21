@@ -10,8 +10,6 @@ class WeatherController implements ContainerInjectableInterface
 
     use ContainerInjectableTrait;
 
-
-
     /**
      * Request post and setup page.
      * @method indexAction
@@ -22,7 +20,7 @@ class WeatherController implements ContainerInjectableInterface
         $title = "Weather";
 
         $location = htmlentities($this->di->get("request")->getPost("location"));
-        $weather = $this->di->get("weather");        
+        $weather = $this->di->get("weather");
         $page = $this->di->get("page");
 
         $page->add("anax/weather/index", [

@@ -12,7 +12,7 @@ namespace Anax\View;
 <div class="form-wrapper">
     <form method="post">
         IP:<br>
-        <input type="text" name="ipAddress" value="<?=$_SERVER['REMOTE_ADDR']; ?>"><br><br>
+        <input type="text" name="ipAddress" value="<?= $userIp; ?>"><br><br>
         <input class="button save" type="submit" name="doSubmit" value="SUBMIT">
     </form>
 </div>

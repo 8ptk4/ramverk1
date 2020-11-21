@@ -50,11 +50,10 @@ class Weather implements ContainerInjectableInterface
 
         $geoArr = json_decode($json, true);
 
-
         if (!$this->location) :
             $this->geolocation = array(
                 "status" => "error",
-                "message" => "No input detected" 
+                "message" => "No input detected"
             );
         elseif ($geoArr == null) :
             $this->geolocation = array(
@@ -71,7 +70,7 @@ class Weather implements ContainerInjectableInterface
         endif;
 
         return $this->geolocation;
-    } 
+    }
 
 
 
@@ -105,32 +104,30 @@ class Weather implements ContainerInjectableInterface
         if ($this->geolocation['status'] == "success") :
             $nodes = $this->convertDays(5);
 
-            $node_count = count($nodes);
+            $nodeCount = count($nodes);
             
-            $curl_arr = array();
+            $curlArr = array();
             $master = curl_multi_init();
 
-            for($i = 0; $i < $node_count; $i++)
+            for ($i = 0; $i < $nodeCount; $i++)
             {
                 $url =$nodes[$i];
-                $curl_arr[$i] = curl_init($url);
-                curl_setopt($curl_arr[$i], CURLOPT_RETURNTRANSFER, true);
-                curl_multi_add_handle($master, $curl_arr[$i]);
+                $curlArr[$i] = curl_init($url);
+                curl_setopt($curlArr[$i], CURLOPT_RETURNTRANSFER, true);
+                curl_multi_add_handle($master, $curlArr[$i]);
             }
 
             do {
-                curl_multi_exec($master,$running);
-            } while($running > 0);
-
+                curl_multi_exec($master, $running);
+            } while ($running > 0);
 
             $data = array();
 
-            for($i = 0; $i < $node_count; $i++)
+            for ($i = 0; $i < $nodeCount; $i++)
             {
-                $results = curl_multi_getcontent($curl_arr[$i]);
+                $results = curl_multi_getcontent($curlArr[$i]);
                 array_push($data, json_decode($results, true));
             }
-
             return $data;
         endif;
     }
@@ -151,7 +148,6 @@ class Weather implements ContainerInjectableInterface
         $enddate = strtotime("+{$days} days", $startdate);
         
         while ($startdate < $enddate) {
-            $test = date("M d", $startdate);
             array_push($arr, "https://api.openweathermap.org/data/2.5/onecall/timemachine?lat={$this->geolocation['latitude']}&lon={$this->geolocation['longitude']}&unit=metrics&dt={$startdate}&appid={$this->accessKey}");
             $startdate = strtotime("+1 day", $startdate);
         }

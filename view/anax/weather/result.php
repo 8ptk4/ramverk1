@@ -21,17 +21,15 @@ namespace Anax\View;
     <div style="display: flex; justify-content: space-between;">
         <div >
             <table style="width: 100%; padding-right: 10px">
-                <?php foreach($geolocation['geolocation'] as $key => $value) { ?>
+                <?php foreach ($geolocation['geolocation'] as $key => $value) { ?>
                     <tr>
                         <td style="color: rgb(52, 101, 164); font-weight: bold;"><?= $key ?></td>
                         <td style="padding-left: 20px; color: rgba(52, 101, 164, .5);"><?= $value ?></td>
                     </tr>
                 <?php } ?>
-                <tr style="margin-top: 5px;">
-                    <td style="color: rgb(52, 101, 164); font-weight: bold;">Temp today</td>
-                    <td style="padding-left: 20px; color: rgba(52, 101, 164, .5);"><?= $weather['daily'][0]['temp']['day'] ?>&#176</td>
-                </tr>
             </table>
+            <span style="font-size: 30px; color: white;"><?= $weather['daily'][0]['temp']['day'] ?>&#176</span>
+            <span style="color: white;"> today</span>
         </div>
         <div id="mapdiv" style="height:250px; width: 400px;"></div>
         <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
@@ -58,7 +56,7 @@ namespace Anax\View;
             <th style="text-align: left;">Max temp</th>
             <th style="text-align: left;">Temp</th>
         </tr>
-        <?php foreach($weather['daily'] as $day) { ?>
+        <?php foreach ($weather['daily'] as $day) { ?>
             <tr style="color: rgba(52, 101, 164, .5);">
                 <td><?= date("m.d.y", $day['dt']) ?></td>
                 <td><?= $day['temp']['min'] ?>&#176</td>
@@ -79,7 +77,7 @@ namespace Anax\View;
             <th style="text-align: left;">Weather</th>
             <th style="text-align: left;">Description</th>
         </tr>
-        <?php foreach($historic as $day) { ?>
+        <?php foreach ($historic as $day) { ?>
             <tr style="color: rgba(52, 101, 164, .5);">
                 <td><?= date("m.d.y", $day['current']['dt']) ?></td>
                 <td><?= ($day['current']['temp'] - 273.15) ?>&#176</td>

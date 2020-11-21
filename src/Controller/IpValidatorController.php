@@ -22,6 +22,7 @@ class IpValidatorController implements ContainerInjectableInterface
     {
         $title = "Ip Validator";
         $ipPost = htmlentities($this->di->get("request")->getPost("ipAddress"));
+        $ipUser = htmlentities($this->di->get("request")->getServer("REMOTE_ADDR"));
         $ipValidator = new IpValidator($ipPost);
 
         $page = $this->di->get("page");
@@ -31,6 +32,7 @@ class IpValidatorController implements ContainerInjectableInterface
             "ipAddress" => $ipPost,
             "status" => $ipValidator->validateIp(),
             "domain" => $ipValidator->getDomain(),
+            "userIp" => $ipUser,
         ]);
 
         return $page->render([
