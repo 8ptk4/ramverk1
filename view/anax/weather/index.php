@@ -11,11 +11,14 @@ namespace Anax\View;
 // var_dump($di);
 ?><h1><?= $title ?></h1>
 
-<p><a href="<?= url("documentation/weather"); ?>">här</a>.</p>
+<p>
+    The documentation behind this service can be found <a href="<?= url("documentation/weather"); ?>">here</a>.:
+    
+</p>
 
 <div class="form-wrapper">
     <form method="post">
-        <label class="label">Ortsnamn:</label>
+        <label class="label">Location:</label>
         <input type="text" name="location" value=""><br><br>
         <input class="button save" type="submit" name="doSubmit" value="SUBMIT">
     </form>

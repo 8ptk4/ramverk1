@@ -38,21 +38,11 @@ class WeatherControllerTest extends TestCase
     }
 
 
-    // $title = "Weather";
 
-    // $location = htmlentities($this->di->get("request")->getPost("location"));
-    // $weather = $this->di->get("weather");
-    // $page = $this->di->get("page");
-
-    // $page->add("anax/weather/index", [
-    //     "title" => $title,
-    //     "location" => $location,
-    //     "geolocation" => $weather->loadGeolocation($location),
-    //     "weather" => $weather->loadWeather(),
-    //     "historic" => $weather->multiCurl(),
-    // ]);
-
-
+    /**
+     * Test loadGeolocation with correct city.
+     * @method testLoadGeoLocationCorrectValues
+     */
     public function testLoadGeolocationCorrectValues()
     {
         $this->controller->location = $this->di->request->getPost('city');
@@ -65,6 +55,12 @@ class WeatherControllerTest extends TestCase
         $this->assertEquals('success', $returnedArr['status']);
     }
 
+
+
+    /**
+     * Test loadGeolocation with faulty city..
+     * @method testLoadGeolocationFaultyLocation
+     */
     public function testLoadGeolocationFaultyLocation()
     {
         $faulty = $this->di->request->getPost('faulty');
@@ -75,6 +71,11 @@ class WeatherControllerTest extends TestCase
     }
 
 
+
+    /**
+     * Test loading weather data.
+     * @method testLoadWeather
+     */
     public function testLoadWeather()
     {
         $this->controller->location = $this->di->request->getPost('city');
@@ -85,6 +86,11 @@ class WeatherControllerTest extends TestCase
     }
 
 
+
+    /**
+     * Test that multi curl returns data.
+     * @method testMultiCurl
+     */
     public function testMultiCurl()
     {
         $this->controller->location = $this->di->request->getPost('city');
@@ -93,35 +99,4 @@ class WeatherControllerTest extends TestCase
 
         $this->assertInternalType('array', $mcWeather);
     }
-    // /**
-    //  * Test IPV4 Validation.
-    //  * @method testValidationIpv4
-    //  */
-    // public function testValidationIpv4()
-    // {
-    //     $this->controller = new IpValidator($this->di->request->getPost('ipAddressIpv4'));
-    //     $this->controller->setDI($this->di);
-    //     $this->controller->ipAddress = $this->di->request->getPost('ipAddressIpv4');
-    //     $this->controller->status = $this->controller->validateIp($this->di->request->getPost('ipAddressIpv4'));
-    //     $this->controller->domain = $this->controller->getDomain();
-    //     $this->assertContains("IPV4", $this->controller->status);
-    //     $this->assertInternalType('string', $this->controller->status);
-    // }
-
-
-
-    // /**
-    //  * Test IPV6 Validation.
-    //  * @method testValidationIpv6
-    //  */
-    // public function testValidationIpv6()
-    // {
-    //     $this->controller = new IpValidator($this->di->request->getPost('ipAddressIpv6'));
-    //     $this->controller->setDI($this->di);
-    //     $this->controller->ipAddress = $this->di->request->getPost('ipAddressIpv6');
-    //     $this->controller->status = $this->controller->validateIp($this->di->request->getPost('ipAddressIpv6'));
-    //     $this->controller->domain = $this->controller->getDomain();
-    //     $this->assertContains("IPV6", $this->controller->status);
-    //     $this->assertInternalType('string', $this->controller->status);
-    // }
 }
