@@ -8,7 +8,6 @@ use Anax\Models\Ipstack;
 
 class GeolocationJsonController implements ContainerInjectableInterface
 {
-
     use ContainerInjectableTrait;
 
     /**

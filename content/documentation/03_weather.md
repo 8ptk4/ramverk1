@@ -28,8 +28,8 @@ latitude, longitude: `/weather_api?location=59.05,16.75`<br>
 
 #### GET
 ```
-GET /weather_api?[dataset]
-GET /weather_api?/flen
+GET /weather_api?location=[dataset]
+GET /weather_api?location=flen
 ```
 Results
 ```

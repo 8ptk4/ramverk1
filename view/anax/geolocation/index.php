@@ -11,13 +11,13 @@ namespace Anax\View;
 //var_dump($di);
 ?><h1><?= $title ?></h1>
 
-<p>Med denna tjänst kan du få fram detaljer utav ditt ip så som närmsta huvudstad, vilket land, longitud, latitud samt kontinent
-den innefattar. Till vänster om dessa detaljer visas även en karta med longitud och latitud som parametrar. Dokumentation över
-RESTAPI:et finner du <a href="<?= url("documentation/ipvalidator"); ?>">här</a>.</p>
+<p>
+    The documentation behind this service can be found <a href="<?= url("documentation/geolocation"); ?>">here</a>
+</p>
 
 <div class="form-wrapper">
     <form method="post">
-        IP:<br>
+        <label>ipv4 or ipv6</label>
         <input type="text" name="ipAddress" value="<?= $userIp; ?>"><br><br>
         <input class="button save" type="submit" name="doSubmit" value="SUBMIT">
     </form>

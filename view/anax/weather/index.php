@@ -12,8 +12,7 @@ namespace Anax\View;
 ?><h1><?= $title ?></h1>
 
 <p>
-    The documentation behind this service can be found <a href="<?= url("documentation/weather"); ?>">here</a>.:
-    
+    The documentation behind this service can be found <a href="<?= url("documentation/weather"); ?>">here</a>
 </p>
 
 <div class="form-wrapper">
