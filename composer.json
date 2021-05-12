@@ -11,7 +11,7 @@
     },
     "require": {
         "anax/anax-ramverk1-me": "^1.0.0",
-        "8ptk4/weather": "^v1.0.0"
+        "8ptk4/weather": "^v1.3.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^7"
