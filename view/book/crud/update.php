@@ -17,10 +17,10 @@ $urlToView = url("book");
 
 
 
-?><h1>Update an item</h1>
+?><h1>Update book</h1>
 
 <?= $form ?>
 
-<p>
-    <a href="<?= $urlToView ?>">View all</a>
-</p>
+<form action="<?= $urlToView ?>">
+    <input class="button save" type="submit" value="View all books">
+</form>

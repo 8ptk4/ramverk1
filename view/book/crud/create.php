@@ -17,10 +17,12 @@ $urlToViewItems = url("book");
 
 
 
-?><h1>Create a item</h1>
+?><h1>Add book</h1>
 
 <?= $form ?>
 
 <p>
-    <a href="<?= $urlToViewItems ?>">View all</a>
+    <form action="<?= $urlToViewItems ?>">
+        <input class="button save" type="submit" value="View all books">
+    </form>
 </p>

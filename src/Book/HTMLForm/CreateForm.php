@@ -25,12 +25,17 @@ class CreateForm extends FormModel
                 "legend" => "Details of the item",
             ],
             [
-                "column1" => [
+                "title" => [
                     "type" => "text",
                     "validation" => ["not_empty"],
                 ],
                         
-                "column2" => [
+                "author" => [
+                    "type" => "text",
+                    "validation" => ["not_empty"],
+                ],
+
+                "cover" => [
                     "type" => "text",
                     "validation" => ["not_empty"],
                 ],
@@ -46,6 +51,8 @@ class CreateForm extends FormModel
 
 
 
+
+
     /**
      * Callback for submit-button which should return true if it could
      * carry out its work and false if something failed.
@@ -56,8 +63,9 @@ class CreateForm extends FormModel
     {
         $book = new Book();
         $book->setDb($this->di->get("dbqb"));
-        $book->column1  = $this->form->value("column1");
-        $book->column2 = $this->form->value("column2");
+        $book->title  = $this->form->value("title");
+        $book->author = $this->form->value("author");
+        $book->cover = $this->form->value("cover");
         $book->save();
         return true;
     }

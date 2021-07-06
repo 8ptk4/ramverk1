@@ -18,33 +18,38 @@ $urlToDelete = url("book/delete");
 
 
 
-?><h1>View all items</h1>
+?><h1>View all books</h1>
 
-<p>
-    <a href="<?= $urlToCreate ?>">Create</a> | 
-    <a href="<?= $urlToDelete ?>">Delete</a>
-</p>
-
+<div style="width: 100%; display: inline-flex; justify-content: space-between;">
+    <form action="<?= $urlToCreate ?>">
+        <input class="button save" type="submit" value="Add book">
+    </form>
+    <form action="<?= $urlToDelete ?>">
+        <input class="button save" type="submit" value="Delete book">
+    </form>
+</div>
 <?php if (!$items) : ?>
-    <p>There are no items to show.</p>
+    <p>There are no books to show.</p>
 <?php
     return;
 endif;
 ?>
 
-<table>
+<table style="width: 100%; border: 1px solid grey;">
     <tr>
-        <th>Id</th>
-        <th>Column1</th>
-        <th>Column2</th>
+        <th><p>Id</p></th>
+        <th><p>Titel</p></th>
+        <th><p>Author</p></th>
+        <th><p>Cover</p></th>
     </tr>
     <?php foreach ($items as $item) : ?>
-    <tr>
+    <tr style="text-align: center;">
         <td>
-            <a href="<?= url("book/update/{$item->id}"); ?>"><?= $item->id ?></a>
+            <p><a href="<?= url("book/update/{$item->id}"); ?>"><?= $item->id ?></a></p>
         </td>
-        <td><?= $item->column1 ?></td>
-        <td><?= $item->column2 ?></td>
+        <td><p><?= $item->title ?></p></td>
+        <td><p><?= $item->author ?></p></td>
+        <td><img src="<?= $item->cover ?>" alt="alternatetext" style="width:50px;height:70px;"></td>
     </tr>
     <?php endforeach; ?>
 </table>
